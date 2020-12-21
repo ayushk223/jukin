@@ -16,7 +16,7 @@ covidApp.controller('covidController',
 				$scope.viewComment=false;
 				$scope.addCovidComments = {
 					 comments: " ",
-					word: /^\s*\w*\s*$/
+					word: /^.*.*$/
 				}
 				$scope.selectedValue='';
 				$scope.method='';
@@ -258,6 +258,7 @@ covidApp.controller('covidController',
 					if(!$scope.countryByName  || !$scope.countryByName[0] || $scope.countryByName[0]['country']!==name){
 						$scope.loadCountryDetailsByName(name);
 					}
+					$scope.viewCommentPage();
 				}
 				
 				$scope.enableCodeHome = function(code){
@@ -270,7 +271,7 @@ covidApp.controller('covidController',
 					if(!$scope.countryByCode || !$scope.countryByCode[0] || $scope.countryByCode.length==0 || $scope.countryByCode[0]['code']!==code){
 						$scope.loadCountryDetailsByCode(code);
 					}
-					
+					$scope.viewCommentPage();
 				}
 				
 				
