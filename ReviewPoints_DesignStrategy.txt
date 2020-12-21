@@ -1,0 +1,15 @@
+CodeReview points:
+1. No need of two separate if conditions in CovidRapidApiErrorHandler. both conditions can be added in a single if condition using OR (||) operation.
+
+2. There are several unused imports.
+3. HashMaps are used with raw types at several places.
+4. Name of the repository package in not correct. 
+5. getCountries() method should be segregated into two separate methods based on the database call and the API call as per the single-responsibility-principle
+6. Unique Index must be applied on "name" parameter of "country" collection
+
+
+
+
+Design Strategy:
+1. When the CovidTracker application loads for the first time, then we can invoke REST API to load country data, as we must have updated list on application load.
+2. When the country list needs to be fetched again while navigating inside the app using navigation buttons, then the data can be loaded from the database itself, assuming database calling is faster than API, and because favourite flag can be updated and data can be retrieved from database accordingly.

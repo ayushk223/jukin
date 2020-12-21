@@ -63,7 +63,7 @@ public class CovidDetailsServiceImpl implements CovidDetailsService {
 		List<Country> countriesInDB = new ArrayList<>();
 		try {
 			if(fetchDb) {
-				return countryRepository.findAll();
+				return countryRepository.findAllOrderByFavourite();
 			}
 			if (isOutdated) {
 				countries = covidRestRepository.findAllCountriesOrderByFavourite();
